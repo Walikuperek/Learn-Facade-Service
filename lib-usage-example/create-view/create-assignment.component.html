@@ -1,0 +1,38 @@
+<main>
+    <ng-container [ngSwitch]="currentStep">
+        <lib-step-details
+            *ngSwitchCase="Step.DETAILS"
+            (detailsChanged)="onDetailsChanged($event)"
+        ></lib-step-details>
+
+        <lib-step-resources
+            *ngSwitchCase="Step.RESOURCES"
+            (appendResources)="onAppendResources($event)"
+            (deleteResource)="onDeleteResource($event)"
+        ></lib-step-resources>
+
+        <lib-step-assignees
+            *ngSwitchCase="Step.ASSIGNEES"
+            (appendGroup)="onAppendAssigneesGroup($event)"
+            (removeGroup)="onRemoveAssigneesGroup($event)"
+        ></lib-step-assignees>
+
+        <lib-step-options
+            *ngSwitchCase="Step.OPTIONS"
+            (optionsChanged)="onOptionsChanged($event)"
+        ></lib-step-options>
+
+        <lib-step-summary *ngSwitchCase="Step.SUMMARY"></lib-step-summary>
+
+        <p *ngSwitchDefault>Not provided currentStep!</element>
+    </ng-container>
+
+    <button (click)="onBack(currentStep)"></button>
+    <ng-template #nextStep>
+        <button (click)="onNext(currentStep)"></button>
+    </ng-template>
+    <ng-container *ngIf="currentStep == Step.SUMMARY; else nextStep">
+        <button (click)="onSaveAssignment()"></button>
+        <button (click)="onCreateAssignment()"></button>
+    </ng-container>
+</main>
