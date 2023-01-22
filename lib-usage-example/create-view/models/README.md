@@ -11,7 +11,7 @@ models
 ```
 ***
 ## Good practices
-* Remember that models are used everywhere in the application.
+* Remember that models are used everywhere in the application. And probably all objects should be properly named/modeled.
 
 * Add specific methods to the model if needed.
 ```typescript
