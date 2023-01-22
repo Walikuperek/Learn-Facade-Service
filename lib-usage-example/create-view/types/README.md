@@ -29,3 +29,8 @@ export * from './user-address.type'
 export * from './geo-coords.type'
 // other types
 ```
+
+***
+
+**Next step**
+[Wizard steps (components)](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/wizard-steps)
