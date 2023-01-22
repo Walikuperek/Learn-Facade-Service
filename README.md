@@ -3,9 +3,9 @@ This project is trying to explain how, why and when to use facade state manageme
 
 ## How to read this?
 
-* [Facade Getting Started](https://quak.com.pl)
-    - [RxJS abstract class StateService](https://quak.com.pl)
-    - [RxJS example of Facade extending StateService](https://quak.com.pl)
+* [Facade Getting Started](https://github.com/Walikuperek/Learn-Facade-Service/edit/master/facade)
+    - [RxJS abstract class StateService](https://github.com/Walikuperek/Learn-Facade-Service/edit/master/facade/code)
+    - [RxJS example of Facade extending StateService](https://github.com/Walikuperek/Learn-Facade-Service/edit/master/facade/code)
 * [Angular Lib usage example](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example)
     - [dto](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/dto)
     - [enums](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/enums)
