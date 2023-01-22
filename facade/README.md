@@ -4,20 +4,73 @@
     - [Steps to implement facade](#steps-to-implement-facade)
 * [How to save data](#how-to-save-data)
 * [How to read data from Facade service](#how-to-read-data-from-facade-service)
+    - [Use data in HTML](#use-data-in-html)
+    - [Use data in TypeScript](#use-data-in-typescript)
+* [View Model Pattern](#view-mode-pattern)
+    - [Usage in component HTML](#usage-in-component-html)
+    - [Usage in component TS](#usage-in-component-ts)
 * [Best practices](#best-practices)
 * [When to use Facade service](#when-to-use-facade-service)
 
 ## Getting started
-In this project we will learn a `Facade` which can refer to multiple `Store` classes or single `Store` service.
+In this project we will learn a `Facade` which can refer to multiple `Store` classes or facade can be single `Store` class.
 It will help with chunking data, managing models and simpler api.
 
 ### Steps to implement facade:
-1. Create `service` that will extend `StateService<T>` class
-2. Name `Store` - we will call it `Store` because it will contain `State` of your `Facade`
-3. Create `Facade` service that have `Store` as a dependency `constructor(public store: Store)`
-4. Create method that will update state in store
-5. Use `State.Service.select(state => state.property)` to get data from store
+1. Create `interface` and `service` that will extend `StateService<T>` class
+```typescript
+interface StoreState {
+    data: string | null;
+}
+
+@Injectable({providedIn: 'root'})
+export class Store extends StateService<StoreState> {
+    super({data: null}) // Initialize default state
+}
+```
+
+2. Add update method to `Store`
+```typescript
+@Injectable({providedIn: 'root'})
+export class Store extends StateService<StoreState> {
+    
+    updateData(data: string): void {
+        this.setState({data}); // Will update data
+    }
+}
+```
+
+3. Create `handle` to get data observable
+```typescript
+@Injectable({providedIn: 'root'})
+export class Store extends StateService<StoreState> {
+    data$ = this.select(state => state.data);
+}
+```
+
+4. Create `Facade` service that have `Store` as a dependency
+```typescript
+@Injectable({providedIn: 'root'})
+export class Facade {
+    constructor(
+        public store: Store
+    ) {}
+}
+```
+
+5. Create method that will update state in store
+```typescript
+@Injectable({providedIn: 'root'})
+export class Facade {
+    
+    updateData(data: string): void {
+        this.store.updateData(data);
+    }
+}
+```
+
 6. You have made your first `Facade` service
+***
 
 ## How to save data
 ```typescript
@@ -47,31 +100,42 @@ export class TodosFacade {
 }
 ```
 
+### Use data in HTML
 ```html
 <!-- Regular approach with concrete observable -->
 <ng-container *ngIf="todosFacade.todos$ | async as todos">
     <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
 </ng-container>
-
-<!-- Approach with viewModel$ -->
-<ng-container *ngIf="viewModel$ | async as vm">
-    <app-selected-todo-modal [selectedTodoId]="vm.selectedTodoId"></app-selected-todo-modal>
-    <app-todo *ngFor="let todo of vm.todos" [todo]="todo"></app-todo>
-</ng-container>
 ```
 
+### Use data in TypeScript 
 ```typescript
 // With regular subscribe
 this.todosFacade.todos$.subscribe(todos => {
     // do something with todos
 });
 
+// Get currently stored value
+const currentTodos = this.todosFacade.state.todos
+```
+
+## View Model Pattern
+View model helps with combining data into single object
+
+### Usage in component TS
+```typescript
 // With view model display approach
 this.viewModel$ = combineLatest([this.todosFacade.todos$, this.todosFacade.selectedTodoId$])
     .pipe(map([todos, selectedTodoId]) => ({todos, selectedTodoId}))
+```
 
-// Get currently stored value
-const currentTodos = this.todosFacade.state.todos
+### Usage in component HTML
+```html
+<!-- Approach with viewModel$ -->
+<ng-container *ngIf="viewModel$ | async as vm">
+    <app-selected-todo-modal [selectedTodoId]="vm.selectedTodoId"></app-selected-todo-modal>
+    <app-todo *ngFor="let todo of vm.todos" [todo]="todo"></app-todo>
+</ng-container>
 ```
 
 ## Best practices
