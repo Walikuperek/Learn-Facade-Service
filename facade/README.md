@@ -13,7 +13,7 @@
 * [When to use Facade service](#when-to-use-facade-service)
 
 ## Getting started
-In this project we will learn a `Facade` which can refer to multiple `Store` classes or facade can be single `Store` class.
+In this project we will learn a `Facade` which can refer to multiple `Store` classes or can be single `Store` class.
 It will help with chunking data, managing models and simpler api.
 
 ### Steps to implement facade:
