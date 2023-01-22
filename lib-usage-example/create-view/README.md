@@ -71,9 +71,12 @@ Then in HTMl
 
 
 * Listen to data from `facade` inside `step-one.component` (if main view component will grow too big).
+
+> `Facade` can easily share data between multiple components, you can fetch where you need it
+
 ```typescript
-// /create-view/wizard-steps/step-one/step-one.component.ts
-class StepOneComponent {
+// /create-view/wizard-steps/step-details/step-details.component.ts
+class StepDetailsComponent {
     
     @Output() courseSelected = EventEmitter<number>();
 
@@ -94,12 +97,12 @@ class StepOneComponent {
 
 Then in HTMl
 ```html
-// /create-view/wizard-steps/step-one/step-one.component.ts
+// /create-view/wizard-steps/step-details/step-one.details.html
 <ng-container *ngIf="viewModel$ | async as viewModel">
-    <lib-step-one-course-select
+    <lib-step-details-course-select
         [userCourses]="viewModel.userCourses"
         (courseSelected)="courseSelected.emit($event)"
-    ></lib-step-one-course-select>
+    ></lib-step-details-course-select>
 </ng-container>
 ```
 
