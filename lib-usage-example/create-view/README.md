@@ -34,7 +34,7 @@ class CreateViewComponent {
 }
 ```
 
-* Listen to data from `facade` that is needed in the UI within `create-view.component`.
+* Listen to data from `facade` that is needed in the UI within `create-view.component` (if simple view).
 ```typescript
 // /create-view/create-view.component.ts
 class CreateViewComponent {
@@ -61,11 +61,45 @@ Then in HTMl
 ```html
 /create-view/create-view.component.html
 <ng-container *ngIf="viewModel$ | async as viewModel">
-    <app-step-details [userCourses]="viewModel.userCourses"></app-step-details>
-    <app-step-resources [userResources]="viewModel.userResources"></app-step-resources>
-    <app-step-assignees [userAssignees]="viewModel.userAssignees"></app-step-assignees>
-    <app-step-options></app-step-options>
-    <app-step-summary></app-step-summary>
+    <lib-step-details [userCourses]="viewModel.userCourses"></app-step-details>
+    <lib-step-resources [userResources]="viewModel.userResources"></app-step-resources>
+    <lib-step-assignees [userAssignees]="viewModel.userAssignees"></app-step-assignees>
+    <lib-step-options></app-step-options>
+    <lib-step-summary></app-step-summary>
+</ng-container>
+```
+
+
+* Listen to data from `facade` inside `step-one.component` (if main view component will grow too big).
+```typescript
+// /create-view/wizard-steps/step-one/step-one.component.ts
+class StepOneComponent {
+    
+    @Output() courseSelected = EventEmitter<number>();
+
+    constructor(private createAssignmentFacade: CreateAssignmentFacade) {
+        this.viewModel$ = combineLatest([
+            this.createAssignmentFacade.userCourses$,
+            ...
+        ]).pipe(
+            map(([userCourses, userGroups, userResources, userAssignees]) => ({
+                userCourses,
+                ...
+            }))
+        );
+    }
+    // ...
+}
+```
+
+Then in HTMl
+```html
+// /create-view/wizard-steps/step-one/step-one.component.ts
+<ng-container *ngIf="viewModel$ | async as viewModel">
+    <lib-step-one-course-select
+        [userCourses]="viewModel.userCourses"
+        (courseSelected)="courseSelected.emit($event)"
+    ></lib-step-one-course-select>
 </ng-container>
 ```
 
