@@ -2,7 +2,7 @@
 
 Example of a create wizard view. This site explains most use-cases for view component.
 
-> It describes **create-assignment.component.ts** and **create-assignment.component.html**, checkout code
+> Describes **create-assignment.component.ts** and **create-assignment.component.html**, don't forget to checkout the code.
 
 ***
 ## Folder structure should look like
