@@ -108,4 +108,4 @@ export * from './create-view';
 ***
 
 **Next step**
-[Data Transfer Object](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/dto)
+* [Data Transfer Object](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/dto)
