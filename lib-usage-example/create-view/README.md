@@ -42,8 +42,10 @@ class CreateViewComponent {
     // ...
 }
 ```
-```angular2html
-// /create-view/create-view.component.html
+
+Then in HTMl
+```html
+/create-view/create-view.component.html
 <ng-container *ngIf="viewModel$ | async as viewModel">
     <app-step-details [userCourses]="viewModel.userCourses"></app-step-details>
     <app-step-resources [userResources]="viewModel.userResources"></app-step-resources>
