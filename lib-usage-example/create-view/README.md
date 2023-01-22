@@ -7,7 +7,7 @@ Example of a create wizard view. This site explains most use-cases for view comp
 ***
 ## Folder structure should look like
 ```
-create-view
+create-view (if as a module in app, if lib then probably src)
 ├── dto
 ├── enums
 ├── models
