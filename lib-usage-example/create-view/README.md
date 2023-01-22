@@ -82,7 +82,7 @@ class StepOneComponent {
             this.createAssignmentFacade.userCourses$,
             ...
         ]).pipe(
-            map(([userCourses, userGroups, userResources, userAssignees]) => ({
+            map(([userCourses, ...]) => ({
                 userCourses,
                 ...
             }))
