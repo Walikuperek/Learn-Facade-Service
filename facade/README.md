@@ -6,7 +6,7 @@
 * [How to read data from Facade service](#how-to-read-data-from-facade-service)
     - [Use data in HTML](#use-data-in-html)
     - [Use data in TypeScript](#use-data-in-typescript)
-* [View Model Pattern](#view-mode-pattern)
+* [View Model Pattern](#view-model-pattern)
     - [Usage in component HTML](#usage-in-component-html)
     - [Usage in component TS](#usage-in-component-ts)
 * [Best practices](#best-practices)
