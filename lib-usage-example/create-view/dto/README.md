@@ -26,3 +26,8 @@ dto
 
 export * from './create-assignment.dto'
 ```
+
+***
+
+**Next step**
+[Enums](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/enums)
