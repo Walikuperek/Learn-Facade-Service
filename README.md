@@ -19,7 +19,7 @@ Read every `best practises`.
 * [Facade Getting Started](https://github.com/Walikuperek/Learn-Facade-Service/edit/master/facade)
     - [RxJS abstract class StateService](https://github.com/Walikuperek/Learn-Facade-Service/blob/master/facade/code/facade_ts_abstract_model.ts)
     - [RxJS example of Facade and Store](https://github.com/Walikuperek/Learn-Facade-Service/blob/master/facade/code/facade_ts_example.ts)
-* [Angular Lib usage example](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view)
+* [Angular usage example](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view)
     - [dto](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/dto)
     - [enums](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/enums)
     - [models](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/models)
