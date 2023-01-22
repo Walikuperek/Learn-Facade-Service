@@ -1,6 +1,7 @@
 # State architecture for TypeScript application
 This project is trying to explain how, why and when to use facade state management approach in the Angular frontend app.
-It contains example code **(lib-usage-example)**, that shows how this architecture should look like.
+It contains example code **(lib-usage-example)**, that shows how this architecture should look like. Every folder contains `README.md`.
+Read every `best practises`.
 
 ## Table of Contents
 
@@ -16,7 +17,7 @@ It contains example code **(lib-usage-example)**, that shows how this architectu
     - [wizard-steps](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/wizard-steps)
 
 ## How to read this?
-1. Go to getting started
-2. Go to **Angular Lib usage example** and read each README.md
-3. Take a look at code examples, they cover most important parts to create clear architecture, that helps with complexity
-4. Then go to every folder within lib-usage-example (dto, enums, models, services, types, wizard-steps) and check README.md + code
+1. Go to `Facade Getting Started`.
+2. Go to `Angular Lib usage example` (contains README.md in every folder with detail info).
+3. Take a look at `code examples`, they cover most important parts to create clear architecture, that helps with complexity.
+4. Then read every README.md for: dto, enums, models, services, types, wizard-steps, mostly look for `best practices`.
