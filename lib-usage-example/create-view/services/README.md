@@ -126,7 +126,7 @@ class YourStore extends StateService<YourStoreState> {
 }
 ```
 
-* If business if/else logic is complex consider using `Politic` classes.
+* If business if/else logic is complex consider using `Politic` classes (it's Strategy pattern).
 ```typescript
 // /services/step-assignees.store.ts
 import {GroupType} from "./group-type.enum";
