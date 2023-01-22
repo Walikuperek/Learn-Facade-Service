@@ -4,8 +4,8 @@
     - [Steps to implement facade](#steps-to-implement-facade)
 * [How to save data](#how-to-save-data)
 * [How to read data from Facade service](#how-to-read-data-from-facade-service)
-    - [Use data in HTML](#use-data-in-html)
     - [Use data in TypeScript](#use-data-in-typescript)
+    - [Use data in HTML](#use-data-in-html)
 * [View Model Pattern](#view-model-pattern)
     - [Usage in component HTML](#usage-in-component-html)
     - [Usage in component TS](#usage-in-component-ts)
@@ -101,7 +101,7 @@ export class TodosFacade {
 
 // If TodosStateStore provides already selected state
 class Component {
-    constructor(public facade: TodosFacade) {
+    constructor(private facade: TodosFacade) {
         this.todos$ = this.facade.todoStore.todos$
     }
 }
