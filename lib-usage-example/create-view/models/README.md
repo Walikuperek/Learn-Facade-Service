@@ -92,4 +92,4 @@ export * from './assignment.model';
 ***
 
 **Next step**
-[Services](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/services)
+* [Services](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/services)
