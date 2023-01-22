@@ -2,10 +2,10 @@
 
 * [Getting started](#getting-started)
     - [Steps to implement facade](#steps-to-implement-facade)
-* [When to use Facade service](#when-to-use-facade-service)
 * [How to save data](#how-to-save-data)
 * [How to read data from Facade service](#how-to-read-data-from-facade-service)
 * [Best practices](#best-practices)
+* [When to use Facade service](#when-to-use-facade-service)
 
 ## Getting started
 In this project we will learn a `Facade` which can refer to multiple `Store` classes or single `Store` service.
@@ -18,22 +18,6 @@ It will help with chunking data, managing models and simpler api.
 4. Create method that will update state in store
 5. Use `State.Service.select(state => state.property)` to get data from store
 6. You have made your first `Facade` service
-
-## When to use Facade service
-##### Will you
-struggle with combining data from multiple components?
-
-##### Will you
-work on a view with multiple selects/filters/inputs/checkboxes/etc?
-
-##### Will you have BIG view component and
-struggle with combining components data into smaller packages with simple and enjoyable public API?
-
-##### Will help with
-components with hundreds of lines of code that are just variable initializations and weird data transformations
-
-##### And lastly
-*It helps with getting data, aggregating data into smaller packages, refreshing it, reacting to this data, etc. Because business always makes it hard, so you can react to this data and fetch anywhere...*
 
 ## How to save data
 ```typescript
@@ -83,3 +67,20 @@ const currentTodos = this.todosFacade.state.todos // or get state directly
 * Try to keep as simple api as possible.
 
 * Try to update state in single main view component.
+
+
+## When to use Facade service
+##### Will you
+struggle with combining data from multiple components?
+
+##### Will you
+work on a view with multiple selects/filters/inputs/checkboxes/etc?
+
+##### Will you have BIG view component and
+struggle with combining components data into smaller packages with simple and enjoyable public API?
+
+##### Will help with
+components with hundreds of lines of code that are just variable initializations and weird data transformations
+
+##### And lastly
+*It helps with getting data, aggregating data into smaller packages, refreshing it, reacting to this data, etc. Because business always makes it hard, so you can react to this data and fetch anywhere...*
