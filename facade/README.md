@@ -163,4 +163,4 @@ components with hundreds of lines of code that are just variable initializations
 *It helps with getting data, aggregating data into smaller packages, refreshing it, reacting to this data, etc. Because business always makes it hard, so you can react to this data and fetch anywhere...*
 ***
 **Next Step** 
-* [View Component with Facade](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create/view)
+* [View Component with Facade](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view)
