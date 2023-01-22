@@ -208,8 +208,11 @@ class CreateAssignmentFacade {
 
 * Each model should be exported from `index.ts` &rarr; will help with importing them in other places.
 ```typescript
-// /enums/index.ts
+// /services/index.ts
 
-export * from './step.enum';
+export * from './assignment.store';
+export * from './step-assignees.store';
+export * from './create-assignment.facade';
+
 // ...
 ```
