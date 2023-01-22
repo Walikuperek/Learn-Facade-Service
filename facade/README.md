@@ -47,18 +47,31 @@ export class TodosFacade {
 }
 ```
 
-```angular2html
-Then Inside component
+```html
+<!-- Regular approach with concrete observable -->
 <ng-container *ngIf="todosFacade.todos$ | async as todos">
     <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
 </ng-container>
 
-Or in TS
+<!-- Approach with viewModel$ -->
+<ng-container *ngIf="viewModel$ | async as vm">
+    <app-selected-todo-modal [selectedTodoId]="vm.selectedTodoId"></app-selected-todo-modal>
+    <app-todo *ngFor="let todo of vm.todos" [todo]="todo"></app-todo>
+</ng-container>
+```
+
+```typescript
+// With regular subscribe
 this.todosFacade.todos$.subscribe(todos => {
     // do something with todos
 });
 
-const currentTodos = this.todosFacade.state.todos // or get state directly
+// With view model display approach
+this.viewModel$ = combineLatest([this.todosFacade.todos$, this.todosFacade.selectedTodoId$])
+    .pipe(map([todos, selectedTodoId]) => ({todos, selectedTodoId}))
+
+// Get currently stored value
+const currentTodos = this.todosFacade.state.todos
 ```
 
 ## Best practices
