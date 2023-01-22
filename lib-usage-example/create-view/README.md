@@ -74,7 +74,11 @@ class CreateViewComponent {
 // /create-view/create-view.component.ts
 class CreateViewComponent {
     onRemoveResouce(resource: Resource) {
-        this.createAssignmentFacade.removeResource(resource);
+        this.createAssignmentFacade.removeResource(resource)
+            .subscribe({
+                next: (response) => console.log('Removed resource', response.resource.id),
+                error: (e) => console.error('HttpError: removeResource', e);
+            });
     }
     // ...
 }
