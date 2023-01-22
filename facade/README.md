@@ -88,15 +88,27 @@ export class TodosStateStore extends StateService<TodoState> {
 ## How to read data from Facade service
 
 ```typescript
+
+// If TodosStateStore not provides already selected state
 export class TodosFacade {
     todos$ = this.todosStateStore.select(state => state.todos); // use to read state
-    
     doneTodos$ = this.todosStateStore.select(state => state.todos).pipe(
         map(todos => todos.filter(todo => todo.isDone))
     ); // or use to read state and transform it
     
-    constructor(public todosStateStore: TodosStateStore) {
+    constructor(public todosStateStore: TodosStateStore) {}
+}
+
+// If TodosStateStore provides already selected state
+class Component {
+    constructor(public facade: TodosFacade) {
+        this.todos$ = this.facade.todoStore.todos$
     }
+}
+
+// And simpler a lot facade
+class Facade {
+    constructor(public todosStateStore: TodosStateStore) {} // public is very important!
 }
 ```
 
