@@ -206,7 +206,7 @@ class CreateAssignmentFacade {
 }
 ```
 
-* Each model should be exported from `index.ts` &rarr; will help with importing them in other places.
+* Each service should be exported from `index.ts` &rarr; will help with importing them in other places.
 ```typescript
 // /services/index.ts
 
