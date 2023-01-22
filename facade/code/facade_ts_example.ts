@@ -24,7 +24,7 @@ const initialState: ITodoState = {
 /**
  * Example of state service.
  */
-export class TodosStateService extends StateService<ITodoState> {
+export class TodosStore extends StateService<ITodoState> {
     /** Not multicasting */
     todosUnicast$: Observable<ITodo[]> = this.select(state => state.todos);
 
@@ -49,3 +49,54 @@ export class TodosStateService extends StateService<ITodoState> {
         this.setState({selectedTodoId: todo.id});
     }
 }
+
+@Injectable({ providedIn: 'root' })
+/**
+ * Example of facade.
+ */
+export class TodosFacade {
+    constructor(public todosStore: TodosStore) {}
+    
+    addTodo(todo: ITodo) {
+        this.todosStore.addTodo(todo);
+    }
+    
+    selectTodo(todo: ITodo) {
+        this.todosStore.selectTodo(todo);
+    }  
+}
+
+/*
+    To save data:
+
+    class Component {
+        constructor(public todosFacade: TodosFacade) {}
+        
+        onAddTodo(todo: ITodo) {
+            this.todosFacade.addTodo(todo);
+        }
+        
+        // ...
+    }
+    
+    To read data:
+
+    class Component {
+        viewModel$: Observable<{todosCount: number; todos: ITodo[]}>
+    
+        constructor(public todosFacade: TodosFacade) {
+            this.viewModel$ = this.todosFacade.todos$.pipe(
+                map(todos => ({todosCount: todos.length, todos}))
+            );
+        }
+        
+        // ...
+    }
+    
+    In HTML
+    
+    <ng-container *ngIf="viewModel$ | async as vm">
+        <app-counter>{{vm.todosCount}}</app-counter>
+        <app-todo *ngFor="let todo of vm.todos" [todo]="todo"></app-todo>
+    </ng-container>
+*/
