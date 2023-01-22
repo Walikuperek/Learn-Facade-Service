@@ -216,3 +216,8 @@ export * from './create-assignment.facade';
 
 // ...
 ```
+
+***
+
+**Next step**
+[Types](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/types)
