@@ -85,7 +85,7 @@ export class TodosFacade {
         viewModel$: Observable<{todosCount: number; todos: ITodo[]}>
     
         constructor(public todosFacade: TodosFacade) {
-            this.viewModel$ = this.todosFacade.todos$.pipe(
+            this.viewModel$ = this.todosFacade.todosStore.todos$.pipe(
                 map(todos => ({todosCount: todos.length, todos}))
             );
         }
