@@ -71,16 +71,25 @@ class CreateViewComponent {
 }
 ```
 
-* Delegate business logic to services, because mainly it's only data manipulation, it will make it easier to test.
+* Delegate business logic to services, it will make it easier to test and split resposibilities.
+
+> Let components to delegate logic to services.
+
 ```typescript
 // /create-view/create-view.component.ts
 class CreateViewComponent {
-    onRemoveResouce(resource: Resource) {
+    onRemoveResource(resource: Resource) {
+        this.createAssignmentFacade.removeResource(resource); // Remove resource from store
+        
+        // Maybe some http call is required
         this.createAssignmentFacade.removeResource(resource)
             .subscribe({
                 next: (response) => console.log('Removed resource', response.resource.id),
                 error: (e) => console.error('HttpError: removeResource', e);
             });
+            
+       // Or simple http request without facade wrapper
+       this.assignmentRepository.removeResource(resource).subscribe(...)
     }
     // ...
 }
