@@ -34,7 +34,7 @@ class CreateViewComponent {
 }
 ```
 
-* Listen to data from `facade` that is needed for the UI in `create-view.component`.
+* Listen to data from `facade` that is needed in the UI within `create-view.component`.
 ```typescript
 // /create-view/create-view.component.ts
 class CreateViewComponent {
