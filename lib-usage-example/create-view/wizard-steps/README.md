@@ -2,7 +2,7 @@
 
 Example of structuring components used in the assignment create view wizard.
 
-> Each step shouldn't have any business logic
+> Each step shouldn't have any business logic or at least don't too much. Gather business logic in services or view component.
 > 
 > It should **emit** all events to the parent component and the parent component should handle the logic.
 > 
