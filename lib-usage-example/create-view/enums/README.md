@@ -29,7 +29,7 @@ export enum Step {
 // ...
 ```
 
-* Each model should be exported from `index.ts` &rarr; will help with importing them in other places.
+* Each enum should be exported from `index.ts` &rarr; will help with importing them in other places.
 ```typescript
 // /enums/index.ts
 
