@@ -38,13 +38,6 @@ services
 * Repository/DAO service methods should return `Observable` with mapped response to the appropriate `model`.
 ```typescript
 // /services/assignment-repository.service.ts
-
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-import { Assignment } from '../models/assignment.model';
-import { HttpService } from './http.service';
-
 export class AssignmentRepositoryService {
     constructor(private httpService: HttpService) {}
 
