@@ -66,19 +66,17 @@ export class AssignmentRepositoryService {
 
 export class CreateAssignmentFacade implements StoreAggregate<CreateAssignmentStores> {
     
-    // Allow access to the data
-    assignment$: Observable<Assignment>;
     assignedClasses$: Observable<AssigneeGroup[]>;
-    assignedPrivateGroups$: Observable<AssigneeGroup[]>;
+    
+    // Or remove this.assignedClasses$ from here and since we use public stepAssigneesStore,
+    // We can fetch data in components like: this.createAssignmentFacade.stepAssigneesStore.assignedClasses$
 
     constructor(
         public assignmentStore: AssignmentStore,
         public stepAssigneesStore: StepAssigneesStore,
         private _repository: AssignmentRepository
     ) {
-        this.assignment$ = this.assignmentStore.assignment$;
         this.assignedClasses$ = this.stepAssigneesStore.assignedClasses$;
-        this.assignedPrivateGroups$ = this.stepAssigneesStore.assignedPrivateGroups$;
     }
     
     updateAssignment(assignment: Assignment): void {
