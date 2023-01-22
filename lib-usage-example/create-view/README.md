@@ -20,6 +20,20 @@ create-view
 ```
 ***
 ## Good practices
+* Focus on methods starting with `on` &rarr; because they are event handlers, and main component should mostly react to user gestures.
+```typescript
+// /create-view/create-view.component.ts
+class CreateViewComponent {
+    onAssignUser(user: User) {}
+    onRemoveResouce(resource: Resource) {}
+    onStepChange(step: Step) {}
+    onStepBack() {}
+    onStepForward() {}
+    onStepSubmit() {}
+    // ...
+}
+```
+
 * Fetch data that is needed for the UI in `create-view.component` from `facade`.
 ```typescript
 // /create-view/create-view.component.ts
@@ -57,24 +71,7 @@ Then in HTMl
 
 * You can fetch data and split it into responsibilities in `Store services/Facade services` &rarr; it will remove some complexity and can make it easy to fetch only once no matter how many times we visit a component
 
-* Focus on methods starting with `on` &rarr; because they are event handlers, and main component should mostly react to user gestures.
-```typescript
-// /create-view/create-view.component.ts
-class CreateViewComponent {
-    onAssignUser(user: User) {}
-    onRemoveResouce(resource: Resource) {}
-    onStepChange(step: Step) {}
-    onStepBack() {}
-    onStepForward() {}
-    onStepSubmit() {}
-    // ...
-}
-```
-
 * Delegate business logic to services, it will make it easier to test and split resposibilities.
-
-> Let components to delegate logic to services.
-
 ```typescript
 // /create-view/create-view.component.ts
 class CreateViewComponent {
