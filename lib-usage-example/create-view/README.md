@@ -34,16 +34,16 @@ class CreateViewComponent {
 }
 ```
 
-* Fetch data that is needed for the UI in `create-view.component` from `facade`.
+* Listen to data from `facade` that is needed for the UI in `create-view.component`.
 ```typescript
 // /create-view/create-view.component.ts
 class CreateViewComponent {
     constructor(private createAssignmentFacade: CreateAssignmentFacade) {
         this.viewModel$ = combineLatest([
-            this.createAssignmentFacade.fetchUserCourses(),
-            this.createAssignmentFacade.fetchUserGroups(),
-            this.createAssignmentFacade.fetchUserResources(),
-            this.createAssignmentFacade.fetchUserAssignees(),
+            this.createAssignmentFacade.userCourses$,
+            this.createAssignmentFacade.userGroups$,
+            this.createAssignmentFacade.userResources$,
+            this.createAssignmentFacade.userAssignees$,
         ]).pipe(
             map(([userCourses, userGroups, userResources, userAssignees]) => ({
                 userCourses,
