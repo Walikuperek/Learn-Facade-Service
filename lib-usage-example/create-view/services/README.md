@@ -49,9 +49,12 @@ export class AssignmentRepositoryService {
     constructor(private httpService: HttpService) {}
 
     public getAssignment(id: number): Observable<Assignment> {
-        // Use model or factory to map response to the model
-        return this.httpService.get<Assignment>(`/assignments/${id}`).pipe(
-            map((assignment: Assignment) => new Assignment(assignment))
+        // Use dto, model or factory to map response to the model
+        return this.httpService.get<AssignmentResponse>(`/assignments/${id}`).pipe(
+            map((assignment: AssignmentResponse) => {
+                const dto = AssignmentFromResponseDto(assignment);
+                return new Assignment(dto);
+            });
         );
     }
 }
