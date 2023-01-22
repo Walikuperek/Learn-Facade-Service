@@ -5,6 +5,9 @@ Read every `best practises`.
 ***
 
 ## How to read this?
+
+> Use **Next Step** section at the end of each page.
+
 1. Go to [Facade Getting Started](https://github.com/Walikuperek/Learn-Facade-Service/edit/master/facade)
 2. Go to [Angular Lib usage example](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view) (contains README.md in every folder with detail info).
 3. Take a look at `code` within `create-view`, it covers most important parts to create clear architecture, that helps with complexity.
