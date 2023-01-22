@@ -57,14 +57,14 @@ export class AssignmentRepositoryService {
 }
 ```
 
-* Facade/store services should focus on storing data that will be needed in the process
+* Facade service should focus on state related to business process, and maintain it.
 
 > NOTE: Abstract class StateService use `BehaviorSubject` to store data and `Observable` to expose it.
 
 ```typescript
 // /services/create-assignment.facade.ts
 
-export class CreateAssignmentFacade implements StoreAggregate<CreateAssignmentStores> {
+export class CreateAssignmentFacade {
     
     assignedClasses$: Observable<AssigneeGroup[]>;
     
