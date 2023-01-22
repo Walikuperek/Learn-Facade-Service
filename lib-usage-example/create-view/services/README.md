@@ -90,7 +90,7 @@ export class CreateAssignmentFacade implements StoreAggregate<CreateAssignmentSt
 }
 ```
 
-* Treat your store services like the places where you need to handle some if/else logic.
+* Treat your store services like the places where you need to handle some if/else logic. But keep in mind that facades should do it as well, just model it as it fits better.
 ```typescript
 // /services/step-assignees.store.ts
 
