@@ -33,4 +33,4 @@ export * from './geo-coords.type'
 ***
 
 **Next step**
-[Wizard steps (components)](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/wizard-steps)
+* [Wizard steps (components)](https://github.com/Walikuperek/Learn-Facade-Service/tree/master/lib-usage-example/create-view/wizard-steps)
