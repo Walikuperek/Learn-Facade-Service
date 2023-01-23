@@ -6,4 +6,6 @@ export class AssigneeGroup {
     name: string;
     type: GroupType;
     assignees: Assignee[];
+
+    constructor(...
 }
