@@ -3,12 +3,6 @@ export class Assignment {
     title: string = '';
     description: string = '';
     // ...
-    // NOTE! consider grouping related properties into objects if needed,
-    // Example:
-    // belongingToCourse: {
-    //     id: string;
-    //     name: string;
-    // }
 
     constructor(initialData: Partial<Assignment> = {}) {
         // Assign all properties from initialData to this object in one line:
