@@ -1,6 +1,6 @@
-# State architecture for TypeScript application
-This project is trying to explain how, why and when to use facade state management approach in the Angular frontend app.
-It contains example code **(lib-usage-example)**, that shows how this architecture should look like. Every folder contains `README.md`.
+# Architecture for Angular wizard-component view application
+This project is trying to explain how, why and when to use facade state management approach in Angular.
+It contains example code **(lib-usage-example)** that shows how this architecture should look like. Every folder contains `README.md`.
 Read every `best practises`.
 ***
 
